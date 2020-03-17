@@ -1,13 +1,20 @@
 @extends('shared.base')
  
 @section('content')
-        
+
+    @if($errors->any())
+        <div class="alert alert-danger" role="alert">
+            @foreach ($errors->all() as $error)
+                {{ $error }}<br>
+            @endforeach
+        </div>
+    @endif 
     <div class="panel panel-default">
  
         <div class="panel-heading"><h3>Cadastre o imóvel</h3></div>
         <div class="panel-body">
  
-    <form method="post" action="">
+    <form method="post" action="{{ route ('imoveis.store') }}">
         {{ csrf_field() }}
         <h4>Dados do imóvel</h4>
         <hr>
