@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Imovel;
+use App\Model\Imovel;
 use Validator;
 
 class ImovelController extends Controller
@@ -30,7 +30,8 @@ class ImovelController extends Controller
      */
     public function index()
     {
-        //
+        $imoveis = Imovel::all();
+        return view('imoveis.index', compact('imoveis'));
     }
 
     /**
