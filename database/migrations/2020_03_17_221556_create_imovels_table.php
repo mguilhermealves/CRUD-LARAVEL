@@ -23,8 +23,8 @@ class CreateImovelsTable extends Migration
             $table->string('cidadeEndereco');
             $table->float('preco');
             $table->integer('qtdQuartos');
-            $table->enum('tipo', ['apartamento', 'casa', 'kitnet']);
-            $table->enum('finalidade', ['venda', 'locação']);
+            $table->enum('tipo', ['Apartamento', 'Casa', 'Kitnet']);
+            $table->enum('finalidade', ['Venda', 'Locação']);
             $table->timestamps();
         });
     }
