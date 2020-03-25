@@ -32,7 +32,10 @@
                         @endforeach                                
                     </tbody>
                 </table> 
-            </div> 
+            </div>
+            <div class="row" align="center">
+                {{ $imoveis->links() }}
+            </div>
         </div>
     </div>
     <a href="{{route('imoveis.create')}}"><button class="btn btn-primary">Adicionar</button></a>
