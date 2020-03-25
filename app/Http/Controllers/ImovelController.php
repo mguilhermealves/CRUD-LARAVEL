@@ -97,10 +97,13 @@ class ImovelController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validator = $this->validarImovel($request);
+        if($validator->fails()){
+                return redirect()->back()->withErrors($validator->errors());
+        }
+
         $imovel = Imovel::find($id);
-
         $dados = $request->all();
-
         $imovel->update($dados);
 
         return redirect()->route('imoveis.index');
@@ -115,5 +118,10 @@ class ImovelController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function remover($id) {
+        $imovel = Imovel::find($id);
+        return view('imoveis.remove', compact('imovel'));
     }
 }
